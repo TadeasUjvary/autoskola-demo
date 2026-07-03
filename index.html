@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autoškola ROZJEZD Plzeň — řidičák skupiny B, moto, kondiční jízdy | DEMO</title>
-<meta name="description" content="Autoškola v Plzni. Řidičák skupiny B od 19 900 Kč, moto, kondiční jízdy i vrácení řidičského oprávnění. 94 % studentů složí zkoušku napoprvé. (Fiktivní demo web.)">
-<meta property="og:title" content="Autoškola ROZJEZD Plzeň">
-<meta property="og:description" content="Řidičák skupiny B od 19 900 Kč. Standard, zrychlený i expres kurz. Moderní vozy, trpěliví instruktoři.">
+<title>Autoškola Brozman — Karlovy Vary | řidičák A · B · C · D, školení řidičů</title>
+<meta name="description" content="Autoškola Brozman v Karlových Varech. Řidičské oprávnění skupin A, B, C, C+E, D, přívěsy B+E i B96, profesní školení řidičů a němčina pro řidiče. (Ukázkový redesign.)">
+<meta property="og:title" content="Autoškola Brozman — Karlovy Vary">
+<meta property="og:description" content="Osobní, nákladní, autobusy i motorky. Skupiny A až D, profesní školení řidičů, kondiční jízdy.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232050E0'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23202a55'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='32' font-weight='800' fill='%23ec0f8c' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -20,15 +20,19 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink:    '#17181C',
-        muted:  '#6B6E76',
-        line:   '#E7E7E3',
-        soft:   '#F6F6F4',
-        accent: '#2050E0',
-        accentD:'#1840B8',
+        navy:    '#202a55',
+        navyD:   '#171e3d',
+        navyL:   '#2c3a6e',
+        ink:     '#1a1d26',
+        muted:   '#63676f',
+        line:    '#E6E7EA',
+        soft:    '#F5F6F8',
+        magenta: '#EC0F8C',
+        magentaD:'#C60B75',
       },
       fontFamily: {
-        sans: ['"Instrument Sans"','system-ui','sans-serif'],
+        head: ['"Barlow Semi Condensed"','sans-serif'],
+        sans: ['Barlow','system-ui','sans-serif'],
       },
     }
   }
@@ -40,8 +44,9 @@ tailwind.config = {
   [x-cloak]{display:none!important}
   .js .fade{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s ease-out}
   .js .fade.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion: reduce){.fade{transition:none;opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){.js .fade{transition:none;opacity:1;transform:none}}
   html{scroll-padding-top:5.5rem}
+  .h-tight{letter-spacing:-0.01em}
 </style>
 
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -51,22 +56,22 @@ tailwind.config = {
 <body class="bg-white font-sans text-ink antialiased">
 
 <!-- ===== NAV ===== -->
-<header class="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur" x-data="{open:false}">
+<header class="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur" x-data="{open:false}">
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-    <a href="#top" class="flex items-center gap-2 font-semibold">
-      <span class="grid h-8 w-8 place-items-center rounded-lg bg-accent text-sm font-bold text-white">R</span>
-      Autoškola ROZJEZD
+    <a href="#top" class="flex items-center gap-2.5">
+      <span class="grid h-9 w-9 place-items-center rounded-lg bg-navy font-head text-lg font-extrabold text-magenta">B</span>
+      <span class="font-head text-xl font-extrabold uppercase leading-none tracking-wide text-navy">Autoškola<br><span class="text-[13px] font-semibold tracking-[0.18em] text-muted">Brozman · K. Vary</span></span>
     </a>
-    <nav class="hidden items-center gap-7 text-[15px] text-muted lg:flex">
-      <a href="#cenik" class="transition-colors hover:text-ink">Kurzy a ceník</a>
-      <a href="#prubeh" class="transition-colors hover:text-ink">Průběh výcviku</a>
-      <a href="#vozidla" class="transition-colors hover:text-ink">Vozidla a učebna</a>
-      <a href="#faq" class="transition-colors hover:text-ink">Časté dotazy</a>
-      <a href="#kontakt" class="transition-colors hover:text-ink">Kontakt</a>
+    <nav class="hidden items-center gap-7 text-[15px] font-medium text-muted lg:flex">
+      <a href="#skupiny" class="transition-colors hover:text-navy">Skupiny a ceník</a>
+      <a href="#skoleni" class="transition-colors hover:text-navy">Školení řidičů</a>
+      <a href="#park" class="transition-colors hover:text-navy">Vozový park</a>
+      <a href="#faq" class="transition-colors hover:text-navy">Časté dotazy</a>
+      <a href="#kontakt" class="transition-colors hover:text-navy">Kontakt</a>
     </nav>
     <div class="flex items-center gap-4">
-      <a href="tel:+420777123456" class="hidden text-[15px] font-medium sm:block">777 123 456</a>
-      <a href="#kontakt" class="hidden rounded-lg bg-accent px-4 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-accentD lg:block">Přihláška</a>
+      <a href="tel:+420731164451" class="hidden text-[15px] font-semibold text-navy sm:block">731 164 451</a>
+      <a href="#kontakt" class="hidden rounded-lg bg-magenta px-4 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-magentaD lg:block">Přihláška</a>
       <button @click="open=!open" class="grid h-10 w-10 place-items-center rounded-lg border border-line lg:hidden" aria-label="Menu">
         <svg x-show="!open" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg x-show="open" x-cloak width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -75,404 +80,421 @@ tailwind.config = {
   </div>
   <div x-show="open" x-collapse x-cloak class="border-t border-line bg-white lg:hidden">
     <nav class="mx-auto flex max-w-6xl flex-col px-4 py-3 text-[15px]">
-      <a href="#cenik" @click="open=false" class="border-b border-line py-3">Kurzy a ceník</a>
-      <a href="#prubeh" @click="open=false" class="border-b border-line py-3">Průběh výcviku</a>
-      <a href="#vozidla" @click="open=false" class="border-b border-line py-3">Vozidla a učebna</a>
+      <a href="#skupiny" @click="open=false" class="border-b border-line py-3">Skupiny a ceník</a>
+      <a href="#skoleni" @click="open=false" class="border-b border-line py-3">Školení řidičů</a>
+      <a href="#park" @click="open=false" class="border-b border-line py-3">Vozový park</a>
       <a href="#faq" @click="open=false" class="border-b border-line py-3">Časté dotazy</a>
-      <a href="#kontakt" @click="open=false" class="py-3 font-semibold text-accent">Kontakt a přihláška</a>
+      <a href="#kontakt" @click="open=false" class="py-3 font-semibold text-magenta">Kontakt a přihláška</a>
     </nav>
   </div>
 </header>
 
 <!-- ===== HERO ===== -->
-<section id="top" class="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-20">
-  <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+<section id="top" class="relative overflow-hidden bg-navy text-white">
+  <div class="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-magenta/20 blur-3xl"></div>
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:gap-14">
     <div class="fade">
-      <p class="text-sm font-medium text-muted">Autoškola v Plzni · od roku 2009</p>
-      <h1 class="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.02em] sm:text-5xl">
-        Řidičák bez stresu<br>a bez čekání na termíny.
+      <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-magenta">
+        <span class="h-px w-6 bg-magenta"></span> Karlovy Vary · od roku 1994
+      </p>
+      <h1 class="mt-5 font-head text-5xl font-extrabold uppercase leading-[0.98] h-tight sm:text-6xl">
+        Od motorky<br>po autobus.<br><span class="text-magenta">Vycvičíme vás.</span>
       </h1>
-      <p class="mt-5 max-w-md text-lg leading-relaxed text-muted">
-        Skupina B od 19&nbsp;900&nbsp;Kč, jízdy si rezervujete online a 94&nbsp;% našich
-        studentů složí zkoušku na první pokus.
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-white/70">
+        Skupiny <strong class="font-semibold text-white">A, B, C, C+E i D</strong>, přívěsy B+E, řidičák
+        B96 bez testů, profesní školení řidičů i němčina pro řidiče. Vše na jednom místě.
       </p>
       <div class="mt-8 flex flex-wrap items-center gap-3">
-        <a href="#kontakt" class="rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accentD">Přihlásit se do kurzu</a>
-        <a href="#cenik" class="rounded-lg border border-line px-6 py-3 font-semibold transition-colors hover:border-ink">Kurzy a ceník</a>
+        <a href="#kontakt" class="rounded-lg bg-magenta px-6 py-3 font-semibold text-white transition-colors hover:bg-magentaD">Přihlásit se do kurzu</a>
+        <a href="#skupiny" class="rounded-lg border border-white/25 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10">Skupiny a ceník</a>
       </div>
-      <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
+      <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/60">
         <span class="flex items-center gap-1.5">
-          <svg class="text-amber-500" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
-          <strong class="font-semibold text-ink">4,9</strong>&nbsp;(127 recenzí na Google)
+          <svg class="text-magenta" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>
+          <strong class="font-semibold text-white">30 let</strong>&nbsp;praxe s profi řidiči
         </span>
-        <span class="hidden h-4 w-px bg-line sm:block"></span>
-        <span>Další kurz od <strong class="font-semibold text-ink">14. července</strong></span>
+        <span class="hidden h-4 w-px bg-white/20 sm:block"></span>
+        <span>Vlastní náklaďáky, autobus i motorky</span>
       </div>
     </div>
     <div class="fade">
-      <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80&auto=format&fit=crop"
-           alt="Student za volantem při výcvikové jízdě"
-           class="aspect-[4/3] w-full rounded-2xl object-cover" fetchpriority="high">
+      <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80&auto=format&fit=crop"
+           alt="Nákladní vozidlo autoškoly na silnici" fetchpriority="high"
+           class="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl ring-1 ring-white/10">
     </div>
   </div>
 </section>
 
-<!-- ===== TERMÍNY ===== -->
-<section class="border-y border-line bg-soft">
+<!-- ===== TERMÍNY BAR ===== -->
+<section class="border-b border-line bg-soft">
   <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-6">
     <p class="text-[15px]">
-      <span class="font-semibold">Nejbližší zahájení kurzů:</span>
-      <span class="text-muted"> 14. července · 4. srpna · 1. září — teorie vždy v pondělí a středu od 17:00</span>
+      <span class="font-semibold">Nejbližší zahájení kurzu skupiny B:</span>
+      <span class="text-muted"> 14. července · 4. srpna · 1. září — teorie po–čt, jízdy dle domluvy</span>
     </p>
-    <a href="#kontakt" class="text-[15px] font-semibold text-accent hover:underline">Rezervovat místo →</a>
+    <a href="#kontakt" class="text-[15px] font-semibold text-magenta hover:underline">Rezervovat místo →</a>
   </div>
 </section>
 
-<!-- ===== KURZY A CENÍK ===== -->
-<section id="cenik" class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+<!-- ===== SKUPINY A CENÍK ===== -->
+<section id="skupiny" class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
   <div class="fade max-w-2xl">
-    <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Kurzy a ceník</h2>
-    <p class="mt-3 text-muted">Ceny jsou konečné a zahrnují učebnici, přístup k online testům i přistavení vozidla ke zkoušce. Zvlášť se platí jen správní poplatek úřadu za zkoušku (700 Kč).</p>
+    <h2 class="font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">Řidičská oprávnění</h2>
+    <p class="mt-3 text-muted">Od skupiny A po autobus skupiny D. Ceny jsou orientační a zahrnují teorii, jízdy i učební materiály. Zvlášť se hradí jen správní poplatek úřadu za závěrečnou zkoušku.</p>
   </div>
 
-  <div class="fade mt-10 grid gap-5 lg:grid-cols-3">
-    <!-- Standard -->
-    <div class="rounded-2xl border border-line p-7">
-      <h3 class="text-lg font-semibold">Skupina B — Standard</h3>
-      <p class="mt-1 text-sm text-muted">Délka 3–4 měsíce, jízdy 1–2× týdně</p>
-      <p class="mt-5 text-3xl font-semibold">19 900 Kč</p>
-      <ul class="mt-6 space-y-2.5 text-[15px] text-muted">
-        <li class="flex gap-2"><span class="text-accent">✓</span> 28 hodin jízd (zákonný rozsah)</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Teorie v učebně + e-learning</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Učebnice a online testy v ceně</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Rezervace jízd online</li>
-      </ul>
-      <a href="#kontakt" class="mt-7 block rounded-lg border border-line py-2.5 text-center font-semibold transition-colors hover:border-ink">Vybrat kurz</a>
+  <div class="fade mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- A -->
+    <div class="flex flex-col rounded-2xl border border-line p-7">
+      <div class="flex items-center justify-between">
+        <span class="grid h-11 w-11 place-items-center rounded-lg bg-navy font-head text-xl font-extrabold text-white">A</span>
+        <span class="rounded-full bg-magenta/10 px-3 py-1 text-xs font-semibold text-magenta">A · A1 · AM</span>
+      </div>
+      <h3 class="mt-5 text-lg font-semibold">Motocykly</h3>
+      <p class="mt-1.5 flex-1 text-[15px] leading-relaxed text-muted">Od mopedu AM přes A1 a A2 až po neomezenou skupinu A. Výcvik začíná na vlastním cvičišti.</p>
+      <p class="mt-5 text-sm text-muted">od</p>
+      <p class="text-2xl font-bold text-navy">13 000 Kč</p>
     </div>
-    <!-- Zrychlený -->
-    <div class="relative rounded-2xl border-2 border-accent p-7">
-      <span class="absolute -top-3 left-6 rounded-full bg-accent px-3 py-0.5 text-xs font-semibold text-white">Nejčastější volba</span>
-      <h3 class="text-lg font-semibold">Skupina B — Zrychlený</h3>
-      <p class="mt-1 text-sm text-muted">Délka 6–8 týdnů, jízdy 2–3× týdně</p>
-      <p class="mt-5 text-3xl font-semibold">23 900 Kč</p>
-      <ul class="mt-6 space-y-2.5 text-[15px] text-muted">
-        <li class="flex gap-2"><span class="text-accent">✓</span> Vše ze Standardu</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Přednostní termíny jízd</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Plán výcviku na míru</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Zkouška do 14 dnů od dokončení</li>
-      </ul>
-      <a href="#kontakt" class="mt-7 block rounded-lg bg-accent py-2.5 text-center font-semibold text-white transition-colors hover:bg-accentD">Vybrat kurz</a>
+    <!-- B -->
+    <div class="relative flex flex-col rounded-2xl border-2 border-magenta p-7">
+      <span class="absolute -top-3 left-6 rounded-full bg-magenta px-3 py-0.5 text-xs font-semibold text-white">Nejčastější</span>
+      <div class="flex items-center justify-between">
+        <span class="grid h-11 w-11 place-items-center rounded-lg bg-navy font-head text-xl font-extrabold text-white">B</span>
+        <span class="rounded-full bg-magenta/10 px-3 py-1 text-xs font-semibold text-magenta">B · B+E · B96</span>
+      </div>
+      <h3 class="mt-5 text-lg font-semibold">Osobní automobil</h3>
+      <p class="mt-1.5 flex-1 text-[15px] leading-relaxed text-muted">Klasická „béčka“, k tomu přívěsy B+E a rozšíření B96 do 4 250 kg — bez dalších testů.</p>
+      <p class="mt-5 text-sm text-muted">od</p>
+      <p class="text-2xl font-bold text-navy">15 000 Kč</p>
     </div>
-    <!-- Expres -->
-    <div class="rounded-2xl border border-line p-7">
-      <h3 class="text-lg font-semibold">Skupina B — Expres</h3>
-      <p class="mt-1 text-sm text-muted">Hotovo do 4 týdnů, jízdy 3–5× týdně</p>
-      <p class="mt-5 text-3xl font-semibold">28 900 Kč</p>
-      <ul class="mt-6 space-y-2.5 text-[15px] text-muted">
-        <li class="flex gap-2"><span class="text-accent">✓</span> Vše ze Zrychleného</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Individuální rozvrh, i víkendy</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Vyzvednutí kdekoli po Plzni</li>
-        <li class="flex gap-2"><span class="text-accent">✓</span> Jeden instruktor po celý výcvik</li>
-      </ul>
-      <a href="#kontakt" class="mt-7 block rounded-lg border border-line py-2.5 text-center font-semibold transition-colors hover:border-ink">Vybrat kurz</a>
+    <!-- C -->
+    <div class="flex flex-col rounded-2xl border border-line p-7">
+      <div class="flex items-center justify-between">
+        <span class="grid h-11 w-11 place-items-center rounded-lg bg-navy font-head text-xl font-extrabold text-white">C</span>
+        <span class="rounded-full bg-magenta/10 px-3 py-1 text-xs font-semibold text-magenta">C · C+E</span>
+      </div>
+      <h3 class="mt-5 text-lg font-semibold">Nákladní vozidla</h3>
+      <p class="mt-1.5 flex-1 text-[15px] leading-relaxed text-muted">Sólo náklaďák skupiny C i jízdní souprava C+E. Cvičíme na vlastních vozech MAN.</p>
+      <p class="mt-5 text-sm text-muted">C od 18 000 Kč · C+E od</p>
+      <p class="text-2xl font-bold text-navy">20 000 Kč</p>
+    </div>
+    <!-- D -->
+    <div class="flex flex-col rounded-2xl border border-line p-7">
+      <div class="flex items-center justify-between">
+        <span class="grid h-11 w-11 place-items-center rounded-lg bg-navy font-head text-xl font-extrabold text-white">D</span>
+        <span class="rounded-full bg-magenta/10 px-3 py-1 text-xs font-semibold text-magenta">D</span>
+      </div>
+      <h3 class="mt-5 text-lg font-semibold">Autobus</h3>
+      <p class="mt-1.5 flex-1 text-[15px] leading-relaxed text-muted">Řidičské oprávnění pro autobusy a dálkové autokary. Kombinujeme s profesním školením řidičů.</p>
+      <p class="mt-5 text-sm text-muted">od</p>
+      <p class="text-2xl font-bold text-navy">25 000 Kč</p>
+    </div>
+    <!-- Kondiční -->
+    <div class="flex flex-col rounded-2xl border border-line p-7">
+      <div class="flex items-center justify-between">
+        <span class="grid h-11 w-11 place-items-center rounded-lg bg-navy text-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M5 12l4-4M5 12l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="rounded-full bg-magenta/10 px-3 py-1 text-xs font-semibold text-magenta">A–D</span>
+      </div>
+      <h3 class="mt-5 text-lg font-semibold">Kondiční jízdy</h3>
+      <p class="mt-1.5 flex-1 text-[15px] leading-relaxed text-muted">Máte řidičák, ale ztratili jste jistotu? Rozjezdíme vás — osobním, nákladním i soupravou.</p>
+      <p class="mt-5 text-sm text-muted">od</p>
+      <p class="text-2xl font-bold text-navy">700 Kč / hod</p>
+    </div>
+    <!-- Vrácení ŘP -->
+    <div class="flex flex-col rounded-2xl border border-line p-7">
+      <div class="flex items-center justify-between">
+        <span class="grid h-11 w-11 place-items-center rounded-lg bg-navy text-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 108-8M4 12v-4m0 4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="rounded-full bg-magenta/10 px-3 py-1 text-xs font-semibold text-magenta">Přezkoušení</span>
+      </div>
+      <h3 class="mt-5 text-lg font-semibold">Vrácení řidičáku</h3>
+      <p class="mt-1.5 flex-1 text-[15px] leading-relaxed text-muted">Přezkoušení odborné způsobilosti po zákazu řízení nebo vybodování. Poradíme s dokumenty.</p>
+      <p class="mt-5 text-sm text-muted">od</p>
+      <p class="text-2xl font-bold text-navy">4 900 Kč</p>
     </div>
   </div>
-
-  <!-- další služby -->
-  <div class="fade mt-12">
-    <h3 class="font-semibold">Další služby</h3>
-    <div class="mt-4 divide-y divide-line border-y border-line text-[15px]">
-      <div class="flex items-baseline justify-between gap-4 py-3.5">
-        <p>Moto A1 / A2 / A <span class="text-muted">— včetně vlastního cvičiště</span></p>
-        <p class="whitespace-nowrap font-semibold">od 14 900 Kč</p>
-      </div>
-      <div class="flex items-baseline justify-between gap-4 py-3.5">
-        <p>Kondiční jízda <span class="text-muted">— pro držitele řidičáku, 60 minut</span></p>
-        <p class="whitespace-nowrap font-semibold">700 Kč</p>
-      </div>
-      <div class="flex items-baseline justify-between gap-4 py-3.5">
-        <p>Doplňková jízda nad rámec kurzu <span class="text-muted">— 45 minut</span></p>
-        <p class="whitespace-nowrap font-semibold">550 Kč</p>
-      </div>
-      <div class="flex items-baseline justify-between gap-4 py-3.5">
-        <p>Vrácení řidičského oprávnění <span class="text-muted">— přezkoušení po zákazu řízení</span></p>
-        <p class="whitespace-nowrap font-semibold">4 900 Kč</p>
-      </div>
-      <div class="flex items-baseline justify-between gap-4 py-3.5">
-        <p>Školení referentů <span class="text-muted">— pro firmy, u vás nebo u nás</span></p>
-        <p class="whitespace-nowrap font-semibold">450 Kč / os.</p>
-      </div>
-    </div>
-    <p class="mt-4 text-sm text-muted">Platba hotově, převodem, nebo na splátky bez navýšení (první splátka 5 000 Kč při zahájení kurzu).</p>
-  </div>
+  <p class="fade mt-6 text-sm text-muted">Platba hotově, převodem nebo na splátky bez navýšení. K závěrečné zkoušce se hradí správní poplatek úřadu (700 Kč) — ten neúčtuje žádná autoškola.</p>
 </section>
 
-<!-- ===== PRŮBĚH VÝCVIKU ===== -->
-<section id="prubeh" class="border-y border-line bg-soft">
+<!-- ===== ŠKOLENÍ / SLUŽBY ===== -->
+<section id="skoleni" class="border-y border-line bg-navy text-white">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
     <div class="fade max-w-2xl">
-      <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Jak výcvik probíhá</h2>
-      <p class="mt-3 text-muted">Od přihlášky k řidičáku ve čtyřech krocích. Se vším vám poradíme — většinu papírování vyřídíme za vás.</p>
+      <p class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-magenta">
+        <span class="h-px w-6 bg-magenta"></span> Pro profesionály
+      </p>
+      <h2 class="mt-4 font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">Školení a profesní kurzy</h2>
+      <p class="mt-3 text-white/65">Nejen řidičák. Postaráme se i o povinná školení a rozšíření kvalifikace, které profesionální řidiči potřebují.</p>
     </div>
 
-    <div class="fade mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      <div>
-        <p class="text-sm font-semibold text-accent">Krok 1</p>
-        <h3 class="mt-2 font-semibold">Přihláška a posudek</h3>
-        <p class="mt-2 text-[15px] leading-relaxed text-muted">Vyplníte žádost a doložíte posudek od praktického lékaře. Oba formuláře vám pošleme e-mailem, na místě to zabere 10 minut.</p>
+    <div class="fade mt-10 grid gap-5 md:grid-cols-3">
+      <div class="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
+        <h3 class="text-lg font-semibold">Pravidelné školení řidičů</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-white/60">Povinné školení profesní způsobilosti řidičů skupin C a D. Termíny vypisujeme průběžně, pro firmy i jednotlivce.</p>
       </div>
-      <div>
-        <p class="text-sm font-semibold text-accent">Krok 2</p>
-        <h3 class="mt-2 font-semibold">Teorie</h3>
-        <p class="mt-2 text-[15px] leading-relaxed text-muted">Výuka v učebně u nádraží (Po + St od 17:00) doplněná o e-learning. Testy si procvičíte na oficiálních otázkách.</p>
+      <div class="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
+        <h3 class="text-lg font-semibold">Další kurzy — IDV</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-white/60">Vstupní školení a doplňující výcvik řidičů. Připravíme vás na profesní průkaz i přezkoušení.</p>
       </div>
-      <div>
-        <p class="text-sm font-semibold text-accent">Krok 3</p>
-        <h3 class="mt-2 font-semibold">Jízdy</h3>
-        <p class="mt-2 text-[15px] leading-relaxed text-muted">28 hodin za volantem po Plzni i mimo město — parkování, couvání, obchvat. Termíny si rezervujete online podle svého rozvrhu.</p>
-      </div>
-      <div>
-        <p class="text-sm font-semibold text-accent">Krok 4</p>
-        <h3 class="mt-2 font-semibold">Závěrečná zkouška</h3>
-        <p class="mt-2 text-[15px] leading-relaxed text-muted">Test z pravidel na magistrátu a zhruba 30 minut jízdy se zkušebním komisařem — autem, které znáte z výcviku.</p>
+      <div class="rounded-2xl bg-white/5 p-7 ring-1 ring-magenta/40">
+        <span class="mb-3 inline-block rounded-full bg-magenta px-2.5 py-0.5 text-xs font-semibold">Novinka</span>
+        <h3 class="text-lg font-semibold">Němčina pro řidiče</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-white/60">Praktická němčina pro řidiče v mezinárodní dopravě — fráze na hranicích, u nakládky i na silnici.</p>
       </div>
     </div>
-
-    <p class="fade mt-10 text-[15px] text-muted">
-      Testy nanečisto najdete na oficiálním portálu ministerstva dopravy
-      <a href="https://etesty2.mdcr.cz" target="_blank" rel="noopener" class="font-semibold text-accent hover:underline">etesty2.mdcr.cz</a>.
-      Přihlášku a lékařský posudek si můžete stáhnout předem: <a href="#" class="font-semibold text-accent hover:underline">žádost o přijetí (PDF)</a> · <a href="#" class="font-semibold text-accent hover:underline">lékařský posudek (PDF)</a>.
-    </p>
   </div>
 </section>
 
-<!-- ===== VOZIDLA A UČEBNA ===== -->
-<section id="vozidla" class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+<!-- ===== V ČEM JSME JINÍ ===== -->
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
   <div class="fade max-w-2xl">
-    <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Vozidla a učebna</h2>
-    <p class="mt-3 text-muted">Všechna auta mají dvojí ovládání a klimatizaci. Na zkoušku jedete vozem, ve kterém jste absolvovali výcvik.</p>
+    <h2 class="font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">V čem jsme jiní</h2>
+    <p class="mt-3 text-muted">Málokterá autoškola v kraji zvládne provést žáka od skupiny A až po autobus. My ano — a děláme to už 30 let.</p>
   </div>
-
-  <div class="fade mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-    <figure>
-      <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&q=75&auto=format&fit=crop"
-           alt="Červený Hyundai i30 — hlavní výcvikový vůz" loading="lazy"
-           class="aspect-[4/3] w-full rounded-xl object-cover">
-      <figcaption class="mt-3">
-        <p class="font-semibold">Hyundai i30 <span class="font-normal text-muted">· manuál</span></p>
-        <p class="text-sm text-muted">Hlavní výcvikový vůz pro skupinu B.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1623869675781-80aa31012a5a?w=800&q=75&auto=format&fit=crop"
-           alt="Bílá Toyota Corolla s automatickou převodovkou" loading="lazy"
-           class="aspect-[4/3] w-full rounded-xl object-cover">
-      <figcaption class="mt-3">
-        <p class="font-semibold">Toyota Corolla <span class="font-normal text-muted">· automat</span></p>
-        <p class="text-sm text-muted">Hybrid pro výcvik s automatem (kód B78).</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&q=75&auto=format&fit=crop"
-           alt="Motocykl pro výcvik skupiny A" loading="lazy"
-           class="aspect-[4/3] w-full rounded-xl object-cover">
-      <figcaption class="mt-3">
-        <p class="font-semibold">Motocykly <span class="font-normal text-muted">· A1 / A2 / A</span></p>
-        <p class="text-sm text-muted">Výcvik začíná na vlastním cvičišti.</p>
-      </figcaption>
-    </figure>
-    <figure>
-      <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=75&auto=format&fit=crop"
-           alt="Učebna autoškoly při výuce teorie" loading="lazy"
-           class="aspect-[4/3] w-full rounded-xl object-cover">
-      <figcaption class="mt-3">
-        <p class="font-semibold">Učebna <span class="font-normal text-muted">· centrum Plzně</span></p>
-        <p class="text-sm text-muted">300 m od Hlavního nádraží, 2. patro.</p>
-      </figcaption>
-    </figure>
+  <div class="fade mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-head text-4xl font-extrabold text-magenta">A–D</p>
+      <h3 class="mt-2 font-semibold">Všechny skupiny</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-muted">Motorky, osobní, nákladní, soupravy i autobusy pod jednou střechou.</p>
+    </div>
+    <div>
+      <p class="font-head text-4xl font-extrabold text-magenta">30 let</p>
+      <h3 class="mt-2 font-semibold">Zkušenosti</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-muted">Vyškolili jsme tisíce řidičů z Karlových Varů i okolí.</p>
+    </div>
+    <div>
+      <p class="font-head text-4xl font-extrabold text-magenta">Vlastní</p>
+      <h3 class="mt-2 font-semibold">Vozový park</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-muted">Náklaďáky MAN, autobus KAROSA i motorky — cvičíte na tom, čím pak jezdíte.</p>
+    </div>
+    <div>
+      <p class="font-head text-4xl font-extrabold text-magenta">B96</p>
+      <h3 class="mt-2 font-semibold">Bez testů</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-muted">Rozšíření na soupravy do 4 250 kg jen praktickým výcvikem, bez zkoušky.</p>
+    </div>
   </div>
 </section>
 
-<!-- ===== INSTRUKTOŘI + RECENZE ===== -->
-<section class="border-y border-line bg-soft">
+<!-- ===== VOZOVÝ PARK ===== -->
+<section id="park" class="border-y border-line bg-soft">
   <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-    <div class="grid gap-14 lg:grid-cols-2 lg:gap-20">
-      <div class="fade">
-        <h2 class="text-3xl font-semibold tracking-[-0.02em]">Instruktoři</h2>
-        <p class="mt-3 text-muted">Učíme trpělivě a bez křiku. Pokud si s instruktorem nesednete, vyměníme ho bez řečí.</p>
-        <div class="mt-8 divide-y divide-line border-y border-line">
-          <div class="flex items-baseline justify-between gap-4 py-4">
-            <div>
-              <p class="font-semibold">Petr Havelka</p>
-              <p class="text-sm text-muted">Vedoucí autoškoly, skupina B</p>
-            </div>
-            <p class="whitespace-nowrap text-sm text-muted">16 let praxe</p>
-          </div>
-          <div class="flex items-baseline justify-between gap-4 py-4">
-            <div>
-              <p class="font-semibold">Jana Malá</p>
-              <p class="text-sm text-muted">Skupina B, kondiční jízdy</p>
-            </div>
-            <p class="whitespace-nowrap text-sm text-muted">9 let praxe</p>
-          </div>
-          <div class="flex items-baseline justify-between gap-4 py-4">
-            <div>
-              <p class="font-semibold">Tomáš Krejčí</p>
-              <p class="text-sm text-muted">Motocykly A1 / A2 / A</p>
-            </div>
-            <p class="whitespace-nowrap text-sm text-muted">12 let praxe</p>
-          </div>
-          <div class="flex items-baseline justify-between gap-4 py-4">
-            <div>
-              <p class="font-semibold">Martin Beran</p>
-              <p class="text-sm text-muted">Skupina B, výcvik s automatem</p>
-            </div>
-            <p class="whitespace-nowrap text-sm text-muted">7 let praxe</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="fade">
-        <h2 class="text-3xl font-semibold tracking-[-0.02em]">Co říkají absolventi</h2>
-        <div class="mt-8 space-y-7">
-          <blockquote class="border-l-2 border-accent pl-5">
-            <p class="leading-relaxed">„Bála jsem se, že na to nemám. Jana mě to naučila bez jediného zvýšení hlasu — a zkoušku jsem dala napoprvé.“</p>
-            <footer class="mt-2 text-sm text-muted">Kristýna V., květen 2026</footer>
-          </blockquote>
-          <blockquote class="border-l-2 border-accent pl-5">
-            <p class="leading-relaxed">„Zrychlený kurz splnil, co sliboval. Za sedm týdnů hotovo, termíny jízd seděly. Doporučil jsem bráchovi.“</p>
-            <footer class="mt-2 text-sm text-muted">Ondřej H., březen 2026</footer>
-          </blockquote>
-          <blockquote class="border-l-2 border-accent pl-5">
-            <p class="leading-relaxed">„Vracel jsem si řidičák po zákazu. Profesionální přístup, žádné zbytečné řeči, přezkoušení napoprvé.“</p>
-            <footer class="mt-2 text-sm text-muted">Pavel D., leden 2026</footer>
-          </blockquote>
-        </div>
-      </div>
+    <div class="fade max-w-2xl">
+      <h2 class="font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">Vozový park</h2>
+      <p class="mt-3 text-muted">Na zkoušku jedete vozidlem, na kterém jste absolvovali výcvik. Žádná překvapení.</p>
     </div>
+    <div class="fade mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=75&auto=format&fit=crop"
+             alt="Nákladní vozidlo skupiny C" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+        <figcaption class="mt-3">
+          <p class="font-semibold">Náklaďák MAN <span class="font-normal text-muted">· C / C+E</span></p>
+          <p class="text-sm text-muted">Sólo i s návěsem pro soupravy.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=800&q=75&auto=format&fit=crop"
+             alt="Autobus skupiny D" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+        <figcaption class="mt-3">
+          <p class="font-semibold">Autobus <span class="font-normal text-muted">· D</span></p>
+          <p class="text-sm text-muted">Výcvik i profesní školení.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&q=75&auto=format&fit=crop"
+             alt="Motocykl pro výcvik skupiny A" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+        <figcaption class="mt-3">
+          <p class="font-semibold">Motocykly <span class="font-normal text-muted">· A / A1 / AM</span></p>
+          <p class="text-sm text-muted">Vlastní cvičiště pro moto.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&q=75&auto=format&fit=crop"
+             alt="Osobní automobil pro výcvik skupiny B" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+        <figcaption class="mt-3">
+          <p class="font-semibold">Osobní vůz <span class="font-normal text-muted">· B / B+E</span></p>
+          <p class="text-sm text-muted">Dvojí ovládání, klimatizace.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECENZE ===== -->
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+  <h2 class="fade font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">Co říkají absolventi</h2>
+  <div class="fade mt-10 grid gap-6 md:grid-cols-3">
+    <blockquote class="rounded-2xl border border-line p-7">
+      <div class="flex gap-0.5 text-magenta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+      </div>
+      <p class="mt-4 leading-relaxed text-ink/80">„Dělal jsem si tu céčko i profesní školení. Trpělivý přístup, jasné vysvětlení, na náklaďák jsem se poprvé nebál sednout.“</p>
+      <footer class="mt-4 text-sm text-muted">Martin K., květen 2026</footer>
+    </blockquote>
+    <blockquote class="rounded-2xl border border-line p-7">
+      <div class="flex gap-0.5 text-magenta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+      </div>
+      <p class="mt-4 leading-relaxed text-ink/80">„Áčko na motorku za pár týdnů, instruktor super. Cvičiště přímo u autoškoly, žádné dojíždění.“</p>
+      <footer class="mt-4 text-sm text-muted">Tereza N., březen 2026</footer>
+    </blockquote>
+    <blockquote class="rounded-2xl border border-line p-7">
+      <div class="flex gap-0.5 text-magenta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+      </div>
+      <p class="mt-4 leading-relaxed text-ink/80">„Firma nás sem posílá na pravidelná školení řidičů. Vždycky rychlé, věcné a s papírováním pomůžou.“</p>
+      <footer class="mt-4 text-sm text-muted">Dopravní firma z K. Varů, 2026</footer>
+    </blockquote>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section id="faq" class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-  <h2 class="fade text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Časté dotazy</h2>
-
-  <div class="fade mt-8 border-t border-line" x-data="{open:-1}">
-    <template x-for="(f,i) in [
-      {q:'Od kolika let můžu začít?', a:'Kurz skupiny B můžete zahájit už v 17 letech — díky režimu L17 pak smíte řídit s mentorem ještě před osmnáctinami. Na moto A1 stačí 16 let, na A2 je potřeba 18 let.'},
-      {q:'Jak dlouho kurz trvá?', a:'Standard zvládnete za 3–4 měsíce, zrychlený za 6–8 týdnů, expres do 4 týdnů. Nejvíc záleží na tom, jak často můžete jezdit — dvě jízdy týdně jsou ideální tempo.'},
-      {q:'Co potřebuji k přihlášce?', a:'Vyplněnou žádost o přijetí k výuce, posudek o zdravotní způsobilosti od praktického lékaře a doklad totožnosti. Oba formuláře vám pošleme e-mailem.'},
-      {q:'Kolik jízd je v ceně?', a:'Zákonných 28 vyučovacích hodin (à 45 minut). Pokud potřebujete víc, doplácíte jen jízdy navíc — 550 Kč za vyučovací hodinu.'},
-      {q:'Jak probíhá závěrečná zkouška?', a:'Elektronický test z pravidel na magistrátu (potřebujete 43 bodů z 50) a poté zhruba 30 minut jízdy se zkušebním komisařem. Správní poplatek 700 Kč se platí úřadu. Testy si předem procvičíte na etesty2.mdcr.cz.'},
-      {q:'Můžu platit na splátky?', a:'Ano, 3 nebo 6 měsíčních splátek bez navýšení. První splátka 5 000 Kč při zahájení kurzu.'}
-    ]" :key="i">
-      <div class="border-b border-line">
-        <button @click="open = open === i ? -1 : i" class="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold" :aria-expanded="open===i">
-          <span x-text="f.q"></span>
-          <svg class="shrink-0 text-muted transition-transform duration-300" :class="open===i ? 'rotate-45' : ''" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
-        <div x-show="open===i" x-collapse x-cloak>
-          <p class="pb-5 leading-relaxed text-muted" x-text="f.a"></p>
+<section id="faq" class="border-t border-line bg-soft">
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
+    <h2 class="fade font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">Časté dotazy</h2>
+    <div class="fade mt-8 border-t border-line" x-data="{open:-1}">
+      <template x-for="(f,i) in [
+        {q:'Jaké skupiny u vás udělám?', a:'Motocykly A, A1 i AM, osobní B včetně přívěsů B+E a rozšíření B96, nákladní C a soupravy C+E a také autobus skupiny D. K tomu profesní školení řidičů a kondiční jízdy.'},
+        {q:'Co je B96 a proč „bez testů“?', a:'B96 je rozšíření skupiny B na jízdní soupravy do 4 250 kg. Získáte ho absolvováním praktického výcviku bez další zkoušky v testech — hodí se třeba na obytný přívěs nebo přepravník.'},
+        {q:'Musím na skupinu C nebo D mít nejdřív B?', a:'Ano, pro nákladní (C) i autobus (D) je potřeba nejprve řidičské oprávnění skupiny B. Když ho máte, navážeme přímo profesním výcvikem.'},
+        {q:'Co obnáší pravidelné školení řidičů?', a:'Je to zákonem daná profesní příprava řidičů skupin C a D. Vypisujeme termíny pro jednotlivce i firmy a vystavíme potřebné doklady k profesnímu průkazu.'},
+        {q:'Jak probíhá závěrečná zkouška?', a:'Test z pravidel, zkouška z ovládání a údržby vozidla a jízda se zkušebním komisařem. K jízdě používáme naše výcvikové vozidlo. Správní poplatek úřadu se hradí zvlášť.'},
+        {q:'Dá se platit na splátky?', a:'Ano, kurzovné lze rozložit na splátky bez navýšení. Konkrétní podmínky rádi domluvíme podle skupiny a rozsahu výcviku.'}
+      ]" :key="i">
+        <div class="border-b border-line">
+          <button @click="open = open === i ? -1 : i" class="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold" :aria-expanded="open===i">
+            <span x-text="f.q"></span>
+            <svg class="shrink-0 text-magenta transition-transform duration-300" :class="open===i ? 'rotate-45' : ''" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <div x-show="open===i" x-collapse x-cloak>
+            <p class="pb-5 leading-relaxed text-muted" x-text="f.a"></p>
+          </div>
         </div>
-      </div>
-    </template>
+      </template>
+    </div>
   </div>
 </section>
 
 <!-- ===== KONTAKT ===== -->
-<section id="kontakt" class="border-t border-line bg-soft">
-  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <div class="fade">
-        <h2 class="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">Přihláška a kontakt</h2>
-        <p class="mt-3 text-muted">Napište nám, do 24 hodin se ozveme a domluvíme detaily. Nebo rovnou zavolejte.</p>
+<section id="kontakt" class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+  <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+    <div class="fade">
+      <h2 class="font-head text-4xl font-extrabold uppercase h-tight sm:text-5xl">Přihláška a kontakt</h2>
+      <p class="mt-3 text-muted">Napište nám, do 24 hodin se ozveme a domluvíme detaily. Nebo rovnou zavolejte na kancelář.</p>
 
-        <div class="mt-8" x-data="{sent:false}">
-          <form x-show="!sent" @submit.prevent="sent=true" class="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label for="f-name" class="mb-1.5 block text-sm font-medium">Jméno a příjmení</label>
-              <input id="f-name" type="text" required class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-accent">
-            </div>
-            <div>
-              <label for="f-tel" class="mb-1.5 block text-sm font-medium">Telefon</label>
-              <input id="f-tel" type="tel" required class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-accent">
-            </div>
-            <div>
-              <label for="f-mail" class="mb-1.5 block text-sm font-medium">E-mail</label>
-              <input id="f-mail" type="email" required class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-accent">
-            </div>
-            <div>
-              <label for="f-course" class="mb-1.5 block text-sm font-medium">Mám zájem o</label>
-              <select id="f-course" class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-accent">
-                <option>Skupina B — Standard</option>
-                <option>Skupina B — Zrychlený</option>
-                <option>Skupina B — Expres</option>
-                <option>Moto A1 / A2 / A</option>
-                <option>Kondiční jízdy</option>
-                <option>Vrácení řidičského oprávnění</option>
-                <option>Školení referentů</option>
-              </select>
-            </div>
-            <div class="sm:col-span-2">
-              <label for="f-msg" class="mb-1.5 block text-sm font-medium">Zpráva <span class="font-normal text-muted">(nepovinné)</span></label>
-              <textarea id="f-msg" rows="4" class="w-full resize-none rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-accent"></textarea>
-            </div>
-            <div class="sm:col-span-2">
-              <button type="submit" class="w-full rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accentD sm:w-auto">Odeslat přihlášku</button>
-              <p class="mt-3 text-xs text-muted">Odesláním souhlasíte se zpracováním údajů pro vyřízení poptávky. (Demo web — formulář nic neodesílá.)</p>
-            </div>
-          </form>
-          <div x-show="sent" x-cloak class="rounded-xl border border-line bg-white p-8 text-center">
-            <p class="text-lg font-semibold">Děkujeme, přihlášku máme.</p>
-            <p class="mx-auto mt-2 max-w-sm text-[15px] text-muted">Do 24 hodin se vám ozveme a pošleme formuláře — žádost o přijetí a posudek pro lékaře.</p>
+      <div class="mt-8" x-data="{sent:false}">
+        <form x-show="!sent" @submit.prevent="sent=true" class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="f-name" class="mb-1.5 block text-sm font-medium">Jméno a příjmení</label>
+            <input id="f-name" type="text" required class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-magenta">
           </div>
+          <div>
+            <label for="f-tel" class="mb-1.5 block text-sm font-medium">Telefon</label>
+            <input id="f-tel" type="tel" required class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-magenta">
+          </div>
+          <div>
+            <label for="f-mail" class="mb-1.5 block text-sm font-medium">E-mail</label>
+            <input id="f-mail" type="email" required class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-magenta">
+          </div>
+          <div>
+            <label for="f-course" class="mb-1.5 block text-sm font-medium">Mám zájem o</label>
+            <select id="f-course" class="w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-magenta">
+              <option>Skupina A / A1 / AM — motocykl</option>
+              <option>Skupina B / B+E / B96 — osobní</option>
+              <option>Skupina C / C+E — nákladní</option>
+              <option>Skupina D — autobus</option>
+              <option>Pravidelné školení řidičů</option>
+              <option>Kondiční jízdy</option>
+              <option>Němčina pro řidiče</option>
+              <option>Vrácení řidičského oprávnění</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="f-msg" class="mb-1.5 block text-sm font-medium">Zpráva <span class="font-normal text-muted">(nepovinné)</span></label>
+            <textarea id="f-msg" rows="4" class="w-full resize-none rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] outline-none transition-colors focus:border-magenta"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <button type="submit" class="w-full rounded-lg bg-magenta px-6 py-3 font-semibold text-white transition-colors hover:bg-magentaD sm:w-auto">Odeslat přihlášku</button>
+            <p class="mt-3 text-xs text-muted">Odesláním souhlasíte se zpracováním údajů pro vyřízení poptávky. (Ukázkový web — formulář nic neodesílá.)</p>
+          </div>
+        </form>
+        <div x-show="sent" x-cloak class="rounded-xl border border-line bg-soft p-8 text-center">
+          <p class="text-lg font-semibold">Děkujeme, přihlášku máme.</p>
+          <p class="mx-auto mt-2 max-w-sm text-[15px] text-muted">Do 24 hodin se vám ozveme a domluvíme termín i rozsah výcviku.</p>
         </div>
       </div>
+    </div>
 
-      <div class="fade">
-        <iframe
-          src="https://maps.google.com/maps?q=Plze%C5%88%20hlavn%C3%AD%20n%C3%A1dra%C5%BE%C3%AD&z=15&output=embed"
-          class="h-64 w-full rounded-xl border border-line" loading="lazy" title="Mapa — učebna Autoškoly ROZJEZD"></iframe>
-        <div class="mt-6 grid gap-6 sm:grid-cols-2">
-          <div>
-            <p class="text-sm font-medium text-muted">Adresa učebny</p>
-            <p class="mt-1 font-semibold">Nádražní 214/8, Plzeň</p>
-            <p class="text-sm text-muted">2. patro, vchod z ulice</p>
-          </div>
-          <div>
-            <p class="text-sm font-medium text-muted">Kancelář</p>
-            <p class="mt-1 text-[15px]">Po–Čt 9:00–17:00<br>Pá 9:00–15:00</p>
-          </div>
-          <div>
-            <p class="text-sm font-medium text-muted">Telefon</p>
-            <a href="tel:+420777123456" class="mt-1 block font-semibold hover:text-accent">+420 777 123 456</a>
-          </div>
-          <div>
-            <p class="text-sm font-medium text-muted">E-mail</p>
-            <a href="mailto:info@autoskola-rozjezd.cz" class="mt-1 block font-semibold hover:text-accent">info@autoskola-rozjezd.cz</a>
-          </div>
+    <div class="fade">
+      <iframe
+        src="https://maps.google.com/maps?q=%C5%A0umavsk%C3%A1%2019%2C%20Karlovy%20Vary&z=15&output=embed"
+        class="h-64 w-full rounded-xl border border-line" loading="lazy" title="Mapa — Autoškola Brozman, Karlovy Vary"></iframe>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <div>
+          <p class="text-sm font-medium text-muted">Kontaktní adresa</p>
+          <p class="mt-1 font-semibold">Šumavská 19</p>
+          <p class="text-sm text-muted">360 01 Karlovy Vary</p>
         </div>
-        <p class="mt-6 text-sm text-muted">Autoškola ROZJEZD s.r.o. · IČO 00 00 00 00 · registrace k provozování autoškoly (demo údaje)</p>
+        <div>
+          <p class="text-sm font-medium text-muted">Provozovna</p>
+          <p class="mt-1 font-semibold">Plynárenská 2</p>
+          <p class="text-sm text-muted">360 01 Karlovy Vary</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-muted">Telefon</p>
+          <a href="tel:+420731164451" class="mt-1 block font-semibold hover:text-magenta">+420 731 164 451</a>
+          <a href="tel:+420730516149" class="block text-sm text-muted hover:text-magenta">kancelář +420 730 516 149</a>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-muted">E-mail</p>
+          <a href="mailto:FrantisekBrozman@seznam.cz" class="mt-1 block break-all font-semibold hover:text-magenta">FrantisekBrozman@seznam.cz</a>
+        </div>
       </div>
+      <p class="mt-6 text-sm text-muted">Autoškola Brozman F. · Karlovy Vary · registrace k provozování autoškoly</p>
     </div>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="border-t border-line">
-  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm text-muted sm:flex-row sm:px-6">
-    <p>© 2026 Autoškola ROZJEZD — ukázkový demo web, všechny údaje jsou smyšlené.</p>
-    <p>Web: <a href="https://ujvary-studio.vercel.app" class="font-medium text-ink hover:text-accent">Tadeáš Ujváry</a></p>
+<footer class="bg-navy text-white/70">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm sm:flex-row sm:px-6">
+    <p class="flex items-center gap-2.5">
+      <span class="grid h-7 w-7 place-items-center rounded-md bg-white/10 font-head text-sm font-extrabold text-magenta">B</span>
+      © 2026 Autoškola Brozman — ukázkový redesign, kontaktní údaje jsou veřejné firemní.
+    </p>
+    <p>Web: <a href="https://ujvary-studio.vercel.app" class="font-medium text-white hover:text-magenta">Tadeáš Ujváry</a></p>
   </div>
 </footer>
 
 <script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+(function () {
+  const els = document.querySelectorAll('.fade');
+  const reveal = el => el.classList.add('in');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => {
+    // reveal anything already in or above the viewport on load
+    if (el.getBoundingClientRect().top < window.innerHeight) reveal(el);
+    else io.observe(el);
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade').forEach(el => io.observe(el));
+  // safety net: never leave content stuck invisible
+  setTimeout(() => els.forEach(reveal), 2500);
+})();
 </script>
 
 </body>
